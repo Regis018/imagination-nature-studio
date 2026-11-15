@@ -35,30 +35,7 @@ $cartCount = get_cart_count();
 $currentLanguage = fz_lang();
 $languages = fz_languages();
 
-/*
- * TEMPORARY DIAGNOSTIC BANNER
- * Remove this block after the language test.
- */
-echo '<div style="
-    background:#ffeb3b;
-    color:#111;
-    padding:12px;
-    text-align:center;
-    font-weight:bold;
-    position:relative;
-    z-index:99999;
-">';
-echo 'LANG=' . htmlspecialchars(
-    fz_lang(),
-    ENT_QUOTES,
-    'UTF-8'
-);
-echo ' | MENU=' . htmlspecialchars(
-    fz_t('football_clubs'),
-    ENT_QUOTES,
-    'UTF-8'
-);
-echo '</div>';
+// Diagnostic banner removed.
 
 /*
  * Current URL and query parameters.

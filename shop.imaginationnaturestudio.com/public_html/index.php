@@ -42,8 +42,7 @@ $metaDescription = 'Premium football club frames, football legends, celebrity po
 
 require __DIR__ . '/includes/header.php';
 
-/* TEMPORARY TEST: confirms this exact index.php file is running. */
-echo '<div style="background:#ffeb3b;color:#111;padding:14px;text-align:center;font-weight:bold;position:relative;z-index:99999;">TEST 123 — SHOP INDEX FILE IS ACTIVE</div>';
+// Test banner removed.
 
 /*
  * WhatsApp messages follow the selected website language.
