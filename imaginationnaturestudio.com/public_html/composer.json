@@ -2,7 +2,8 @@
     "require": {
         "dompdf/dompdf": "3.1.6",
         "minishlink/web-push": "^11.0",
-        "kreait/firebase-php": "^7.0"
+        "kreait/firebase-php": "^7.0",
+        "google/cloud-firestore": "^2.4"
     },
     "autoload": {
         "psr-4": {
