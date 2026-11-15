@@ -78,8 +78,17 @@ foreach (TABLES as $table) {
             $body  = ['fields' => toFirestoreFields($row)];
             $url   = FS_BASE . "/$table/$docId";
 
-            $ok = fsRequest('PATCH', $url, $token, $body);
-            if ($ok) { $done++; } else { echo "\n    ✗ doc $docId"; }
+            $httpCode = 0;
+            $result = fsRequest('PATCH', $url, $token, $body, $httpCode);
+            if ($result) {
+                $done++;
+            } else {
+                echo "\n    ✗ doc $docId";
+                if ($httpCode === 429) {
+                    echo "\n\n  ✗ Quota exceeded — daily limit hit. Try again tomorrow after 10 AM Kigali time.\n\n";
+                    exit(1);
+                }
+            }
         }
 
         $offset += CHUNK_SIZE;
@@ -144,7 +153,7 @@ function base64url(mixed $data, bool $raw = false): string
     return rtrim(strtr(base64_encode($str), '+/', '-_'), '=');
 }
 
-function fsRequest(string $method, string $url, string $token, ?array $body = null): bool
+function fsRequest(string $method, string $url, string $token, ?array $body = null, int &$statusCode = 0): bool
 {
     $ch = curl_init($url);
     $headers = ['Authorization: Bearer ' . $token, 'Content-Type: application/json'];
@@ -160,13 +169,19 @@ function fsRequest(string $method, string $url, string $token, ?array $body = nu
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
     }
 
-    $res  = curl_exec($ch);
-    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $res        = curl_exec($ch);
+    $code       = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $statusCode = $code;
     // curl_close() is a no-op since PHP 8.0 — skip to avoid deprecation notice
+
+    if ($res === false) {
+        echo "\n    [curl error] " . curl_error($ch);
+        return false;
+    }
 
     if ($code < 200 || $code >= 300) {
         $err = json_decode($res, true);
-        $msg = $err['error']['message'] ?? $res;
+        $msg = is_array($err) ? ($err['error']['message'] ?? $res) : $res;
         echo "\n    [HTTP $code] $msg";
         return false;
     }
