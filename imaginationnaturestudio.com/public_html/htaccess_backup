@@ -1,0 +1,7 @@
+PassengerFriendlyErrorPages on
+PassengerAppEnv development
+Options -Indexes
+ServerSignature Off
+<FilesMatch "(^\.|config\.php|database\.sql|error\.log|composer\.(json|lock))$">
+  Require all denied
+</FilesMatch>

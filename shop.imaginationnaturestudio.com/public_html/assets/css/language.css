@@ -1,0 +1,47 @@
+/* Frame Zone Kigali — language selector */
+
+.fz-language {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+}
+
+.fz-language label {
+    color: inherit;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fz-language select {
+    appearance: auto;
+    max-width: 190px;
+    padding: 9px 12px;
+    border: 1px solid #c9a44c;
+    border-radius: 8px;
+    background: #171717;
+    color: #ffffff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.fz-language select:focus {
+    outline: 2px solid #c9a44c;
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .fz-language {
+        gap: 5px;
+    }
+
+    .fz-language label {
+        font-size: 12px;
+    }
+
+    .fz-language select {
+        max-width: 155px;
+        padding: 8px;
+        font-size: 12px;
+    }
+}

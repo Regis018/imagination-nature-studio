@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Receipt · INS-2026-00018 · Imagination Nature Studio</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold:       #c9a44b;
+    --gold-dark:  #a8862f;
+    --gold-light: #e8d5a0;
+    --black:      #1a1a1a;
+    --deep:       #0d0d0d;
+    --ink:        #2a2a2a;
+    --muted:      #6b6b6b;
+    --line:       #e6e1d6;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #ddd8cd;
+    color: var(--ink);
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 30px 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .toolbar { max-width: 850px; margin: 0 auto 16px; display: flex; gap: .6rem; justify-content: space-between; align-items: center; }
+  .toolbar .btn { display: inline-flex; align-items: center; gap: .5rem; padding: 10px 22px; background: var(--gold); color: #fff; border: 0; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; transition: all .25s; }
+  .toolbar .btn:hover { background: var(--gold-dark); transform: translateY(-1px); }
+  .toolbar .btn.ghost { background: transparent; border: 1px solid #bdb6a3; color: var(--ink); }
+  .sheet { max-width: 850px; margin: 0 auto; background: #fff; box-shadow: 0 20px 60px rgba(0,0,0,.2); border-radius: 4px; overflow: hidden; }
+
+  /* ===== BLACK HEADER BAR ===== */
+  .hdr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    padding: 22px 32px;
+    align-items: center;
+    background: #0d0d0d;
+    border-bottom: 3px solid var(--gold);
+    position: relative;
+  }
+  .hdr::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 15% 50%, rgba(201,164,75,.12), transparent 55%);
+    pointer-events: none;
+  }
+  .hdr-left { display: flex; gap: 20px; align-items: center; position: relative; }
+  .brand-logo { width: 130px; flex-shrink: 0; }
+  .brand-logo img { display: block; width: 100%; height: auto; }
+
+  .brand-info { font-size: 10.5px; line-height: 1.85; color: #e8e0cf; }
+  .brand-info strong {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .brand-info .row { display: flex; gap: 6px; align-items: center; color: #d9d0c0; }
+  .brand-info .icon { width: 12px; height: 12px; flex-shrink: 0; fill: var(--gold); }
+
+  .hdr-right { text-align: right; max-width: 220px; position: relative; }
+  .hdr-right .script {
+    font-family: 'Dancing Script', cursive;
+    font-size: 34px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .hdr-right .tag {
+    font-size: 10px;
+    letter-spacing: .3em;
+    color: #e8e0cf;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* ===== TITLE ===== */
+  .title-block { padding: 22px 36px 14px; }
+  .receipt-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 44px; line-height: 1; letter-spacing: -.5px; color: var(--black); margin-bottom: 4px; }
+  .receipt-title .gold { color: var(--gold); }
+  .receipt-sub { font-weight: 500; font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--ink); padding-bottom: 12px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+  .thank-you { font-size: 12px; color: var(--ink); line-height: 1.55; max-width: 420px; }
+
+  /* ===== MIDDLE ===== */
+  .middle { display: grid; grid-template-columns: 260px 1fr; gap: 26px; padding: 16px 36px 22px; align-items: start; }
+  .pkg-badge { background: linear-gradient(180deg, #14110d 0%, #1e1a13 100%); color: #fff; border-radius: 10px; padding: 20px 22px 18px; text-align: center; position: relative; overflow: hidden; border: 2px solid var(--gold); }
+  .pkg-badge::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(201,164,75,.25), transparent 60%); pointer-events: none; }
+  .pkg-crown { color: var(--gold); margin-bottom: 6px; }
+  .pkg-crown svg { width: 42px; height: auto; display: inline-block; }
+  .pkg-name { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 26px; letter-spacing: .06em; color: var(--gold); line-height: 1.1; text-transform: uppercase; margin-bottom: 6px; word-break: break-word; }
+  .pkg-sub { font-size: 9.5px; letter-spacing: .28em; color: #d9c79a; text-transform: uppercase; margin-bottom: 12px; }
+  .pkg-price { display: inline-block; background: var(--gold); color: #14110d; font-weight: 800; font-size: 16px; padding: 7px 20px; border-radius: 4px; }
+  .pkg-tagline { font-family: 'Dancing Script', cursive; font-size: 15px; color: var(--gold-light); margin-top: 14px; line-height: 1.2; }
+  .client-table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; font-size: 11.5px; }
+  .client-table .section-hd { background: var(--gold); color: #fff; font-weight: 700; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; padding: 7px 12px; }
+  .client-table td { padding: 6px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .client-table tr:last-child td { border-bottom: 0; }
+  .client-table td.label { background: #f5f2ea; font-weight: 500; color: var(--muted); width: 38%; }
+  .client-table td.value { font-weight: 500; color: var(--black); }
+  .client-table td.value.gold { color: var(--gold-dark); font-weight: 700; letter-spacing: .04em; }
+
+  /* ===== INCLUSIONS ===== */
+  .inclusions-wrap { padding: 0 36px 18px; }
+  .inclusions-band { background: var(--gold); color: #fff; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; padding: 6px; border-radius: 4px 4px 0 0; }
+  .inclusions { border: 1px solid var(--gold); border-top: 0; border-radius: 0 0 8px 8px; display: grid; grid-template-columns: 1fr 1fr auto; padding: 18px 20px; }
+  .inclusions .col { display: flex; flex-direction: column; gap: 12px; padding-right: 20px; border-right: 1px solid var(--line); }
+  .inclusions .col:nth-child(2) { padding-left: 20px; }
+  .inclusions .col:last-child { border-right: 0; padding-left: 20px; padding-right: 0; align-items: flex-end; justify-content: center; }
+  .inc-item { display: flex; align-items: center; gap: 12px; font-size: 11.5px; color: var(--black); line-height: 1.35; }
+  .inc-icon { width: 34px; height: 34px; border-radius: 6px; display: grid; place-items: center; flex-shrink: 0; border: 1.5px solid var(--black); background: #fff; }
+  .inc-icon svg { width: 18px; height: 18px; fill: var(--black); }
+  .script-block { text-align: right; font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 22px; line-height: 1.15; }
+  .script-block .heart { display: block; font-size: 14px; margin-top: 6px; color: var(--gold); }
+
+  /* ===== PAYMENTS ===== */
+  .payments-wrap { padding: 4px 36px 20px; }
+  .payments-band { background: var(--gold); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; padding: 6px 14px; border-radius: 4px 4px 0 0; display: inline-block; margin-bottom: -1px; }
+  .payments-table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); font-size: 11.5px; }
+  .payments-table th { background: #f5f2ea; padding: 9px 12px; text-align: left; font-weight: 700; color: var(--black); border-bottom: 1px solid var(--line); font-size: 11px; }
+  .payments-table td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .payments-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .payments-table th.num { text-align: right; }
+  .payments-table tr.total-row td { font-weight: 700; background: #faf7f1; border-bottom: 0; }
+
+  /* ===== TERMS + SIGNATURE ===== */
+  .bottom { display: grid; grid-template-columns: 1.3fr .7fr; gap: 30px; padding: 8px 36px 24px; align-items: start; }
+  .terms h3 { font-size: 12px; font-weight: 800; color: var(--black); letter-spacing: .04em; margin-bottom: 10px; }
+  .terms ol { padding-left: 18px; color: var(--ink); font-size: 11px; line-height: 1.7; }
+  .terms li { margin-bottom: 4px; }
+
+  .signature-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 22px;
+  }
+  .stamp-img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    display: block;
+  }
+  .client-sign {
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+    margin-top: 6px;
+  }
+  .client-sign .line {
+    border-top: 1px solid var(--ink);
+    height: 1px;
+    margin-bottom: 6px;
+  }
+  .client-sign .lbl {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-band { background: linear-gradient(90deg, #14110d 0%, #1e1a13 100%); color: #fff; padding: 20px 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
+  .footer-band .thank-script { font-family: 'Dancing Script', cursive; font-size: 42px; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+  .footer-band .thank-sub { font-size: 10.5px; letter-spacing: .28em; color: var(--gold-light); text-transform: uppercase; font-weight: 600; }
+  .footer-band .thank-heart { color: var(--gold); font-size: 12px; margin-top: 6px; }
+  .service-icons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center; }
+  .service-icons .si { color: var(--gold); font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+  .service-icons .si svg { display: block; margin: 0 auto 6px; width: 22px; height: 22px; fill: #fff; opacity: .9; }
+  .service-icons .si .si-sub { color: var(--gold-light); font-weight: 500; font-size: 8px; }
+
+  /* ===== PRINT ===== */
+  @page { size: A4; margin: 8mm; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .toolbar { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; max-width: none; }
+    .footer-band, .pkg-badge, .inclusions-band, .payments-band, .hdr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 700px) {
+    body { padding: 12px 8px; }
+    .hdr { grid-template-columns: 1fr; padding: 20px 20px; }
+    .hdr-right { text-align: left; }
+    .hdr-left { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .middle { grid-template-columns: 1fr; padding: 14px 20px; }
+    .receipt-title { font-size: 32px; }
+    .title-block { padding: 18px 20px 12px; }
+    .inclusions-wrap { padding: 0 20px 14px; }
+    .inclusions { grid-template-columns: 1fr; padding: 14px; }
+    .inclusions .col { border-right: 0; padding: 0; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+    .inclusions .col:last-child { border-bottom: 0; margin-bottom: 0; align-items: flex-start; padding-left: 0; }
+    .payments-wrap { padding: 4px 20px 16px; }
+    .bottom { grid-template-columns: 1fr; padding: 8px 20px 18px; gap: 20px; }
+    .signature-area { align-items: center; }
+    .footer-band { grid-template-columns: 1fr; padding: 18px 20px; text-align: center; }
+    .stamp-img { width: 120px; height: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a class="btn ghost" href="https://imaginationnaturestudio.com/booking/confirmation.php?ref=INS-2026-00018">← Back</a>
+  <button class="btn" onclick="window.print()">🖨️ Save as PDF / Print</button>
+</div>
+
+<div class="sheet">
+
+  <!-- ============ BLACK HEADER BAR ============ -->
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="brand-logo">
+        <img src="https://imaginationnaturestudio.com/uploads/logo-a989848c79ee.png" alt="INS">
+      </div>
+      <div class="brand-info">
+        <strong>IMAGINATION NATURE STUDIO LTD</strong>
+        <div class="row">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          <span>TIN: 111997931</span>
+        </div>
+        <div class="row">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg>
+          <span>Kiyovu, Kigali, Rwanda</span>
+        </div>
+        <div class="row">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.2.4 2.5.6 3.8.6a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.6.6 3.8a1 1 0 0 1-.25 1l-2.25 2z"/></svg>
+          <span>+250 788 577 033</span>
+        </div>
+        <div class="row">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>rider.regis18@gmail.com</span>
+        </div>
+        <div class="row">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.95a15 15 0 0 0-1.3-3.4A8 8 0 0 1 18.9 8zM12 4c.85 1.2 1.5 2.6 1.9 4h-3.8c.4-1.4 1.05-2.8 1.9-4zM4.25 14a8 8 0 0 1 0-4h3.4a17 17 0 0 0 0 4h-3.4zm.85 2h2.95c.3 1.2.75 2.35 1.3 3.4A8 8 0 0 1 5.1 16zm2.95-8H5.1a8 8 0 0 1 4.25-3.4A15 15 0 0 0 8.05 8zM12 20a13 13 0 0 1-1.9-4h3.8A13 13 0 0 1 12 20zm2.3-6H9.7a15 15 0 0 1 0-4h4.6a15 15 0 0 1 0 4zm.35 5.4c.55-1.05 1-2.2 1.3-3.4h2.95a8 8 0 0 1-4.25 3.4zM16.35 14a17 17 0 0 0 0-4h3.4a8 8 0 0 1 0 4h-3.4z"/></svg>
+          <span>www.imaginationnaturestudio.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="script">Moments</div>
+      <div class="tag">THAT LAST<br>FOREVER</div>
+    </div>
+  </div>
+
+  <!-- ============ TITLE ============ -->
+  <div class="title-block">
+    <div class="receipt-title">PAYMENT <span class="gold">RECEIPT</span></div>
+    <div class="receipt-sub">WEDDING PHOTOGRAPHY</div>
+    <p class="thank-you">Thank you for trusting Imagination Nature Studio<br>to be part of your special day.</p>
+  </div>
+
+  <!-- ============ MIDDLE ============ -->
+  <div class="middle">
+
+          <div class="pkg-badge">
+        <div class="pkg-crown">
+          <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M2 6l10 8L24 2l12 12 10-8-4 20H6L2 6zm6 22h32v4H8v-4z"/>
+          </svg>
+        </div>
+        <div class="pkg-name">PLATINUM WEDDING</div>
+        <div class="pkg-sub">Wedding Photography</div>
+        <div class="pkg-price">1,300,000 RWF</div>
+        <div class="pkg-tagline">More Than Photos,<br>A Story for Life</div>
+      </div>
+    
+    <div>
+      <table class="client-table">
+        <tr><td class="label">Company Name:</td><td class="value">IMAGINATION NATURE STUDIO LTD</td></tr>
+        <tr><td class="label">Owner / Director:</td><td class="value">Tuyikunde Regis</td></tr>
+        <tr><td class="label">TIN:</td><td class="value">111997931</td></tr>
+        <tr><td colspan="2" class="section-hd">Client Information</td></tr>
+        <tr><td class="label">Client Name:</td><td class="value">BANANEZA P</td></tr>
+        <tr><td class="label">Phone:</td><td class="value">0788393030</td></tr>
+        <tr><td class="label">Event Date:</td><td class="value">12 December 2026</td></tr>
+        <tr><td class="label">Event Type:</td><td class="value">Wedding Photography</td></tr>
+        <tr><td class="label">Receipt No:</td><td class="value">INS-2026-00018</td></tr>
+        <tr><td class="label">Date Issued:</td><td class="value">23 September 2026</td></tr>
+        <tr>
+          <td class="label">Service:</td>
+          <td class="value gold">Wedding Photography</td>
+        </tr>
+                <tr>
+          <td class="label">Package:</td>
+          <td class="value gold">PLATINUM WEDDING</td>
+        </tr>
+              </table>
+    </div>
+
+  </div>
+
+  <!-- ============ INCLUSIONS ============ -->
+    <div class="inclusions-wrap">
+    <div class="inclusions-band">Package Inclusions</div>
+    <div class="inclusions">
+
+      <div class="col">
+                  <div class="inc-item">
+            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M9 3 7.17 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.17L15 3H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg></span>
+            <span>All edited photos (soft copies)</span>
+          </div>
+                  <div class="inc-item">
+            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg></span>
+            <span>2 Photobooks (Big &amp; Small)</span>
+          </div>
+                  <div class="inc-item">
+            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M9 3 7.17 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.17L15 3H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg></span>
+            <span>Couple photoshoot</span>
+          </div>
+                  <div class="inc-item">
+            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span>
+            <span>2 Highlight videos</span>
+          </div>
+              </div>
+
+      <div class="col">
+                  <div class="inc-item">
+            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span>
+            <span>2 Full wedding videos</span>
+          </div>
+                  <div class="inc-item">
+            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg></span>
+            <span>2 Photo frames (A3) and 1 Photo frame (A1)</span>
+          </div>
+                  <div class="inc-item">
+            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span>
+            <span>2 Photographers &amp; 2 Videographers</span>
+          </div>
+              </div>
+
+      <div class="col">
+        <div class="script-block">
+          Preserving<br>Your Precious<br>Moments<br>Forever
+          <span class="heart">♥</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <!-- ============ PAYMENTS ============ -->
+  <div class="payments-wrap">
+    <div class="payments-band">Payment Details</div>
+    <table class="payments-table">
+      <thead>
+        <tr>
+          <th>Payment Description</th>
+          <th class="num">Amount (RWF)</th>
+          <th>Payment Method</th>
+          <th>Date</th>
+          <th class="num">Balance (RWF)</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+                <tr>
+          <td>Remaining Balance</td>
+          <td class="num">1,300,000</td>
+          <td>To be paid</td>
+          <td>Before Event</td>
+          <td class="num">0</td>
+        </tr>
+        
+        
+        <tr class="total-row">
+          <td>Total Amount</td>
+          <td class="num">1,300,000</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="num">1,300,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ TERMS + STAMP ============ -->
+  <div class="bottom">
+
+    <div class="terms">
+      <h3>TERMS &amp; CONDITIONS</h3>
+      <ol>
+        <li>This receipt serves as proof of payment for the selected package.</li>
+        <li>Final payment should be completed before the event date.</li>
+        <li>Deliverables will be provided within the agreed timeline.</li>
+        <li>Any additional services outside the package will be charged separately.</li>
+        <li>We appreciate your trust and look forward to capturing your beautiful moments.</li>
+      </ol>
+    </div>
+
+    <div class="signature-area">
+      <img class="stamp-img"
+           src="https://imaginationnaturestudio.com/assets/images/stamp1.png"
+           alt="Official Stamp"
+           onerror="this.style.display='none'">
+
+      <div class="client-sign">
+        <div class="line"></div>
+        <div class="lbl">Client Signature</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="footer-band">
+    <div>
+      <div class="thank-script">Thank You</div>
+      <div class="thank-sub">For letting us be part of your journey</div>
+      <div class="thank-heart">♥</div>
+    </div>
+    <div class="service-icons">
+      <div class="si">
+        <svg viewBox="0 0 24 24"><path d="M9 3 7.17 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.17L15 3H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+        Photography<div class="si-sub">Life</div>
+      </div>
+      <div class="si">
+        <svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+        Videography<div class="si-sub">Emotions</div>
+      </div>
+      <div class="si">
+        <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+        Printing<div class="si-sub">Memories</div>
+      </div>
+      <div class="si">
+        <svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>
+        Frames<div class="si-sub">Your Story</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  if (location.search.indexOf('auto=1') > -1) {
+    window.addEventListener('load', function () {
+      setTimeout(function () { window.print(); }, 500);
+    });
+  }
+</script>
+
+</body>
+</html>

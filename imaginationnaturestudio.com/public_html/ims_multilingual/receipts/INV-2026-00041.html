@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    Invoice INV-2026-00041
+</title>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    padding: 30px;
+
+    background: #eee8df;
+
+    color: #222;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+.page {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    padding: 45px;
+
+    box-shadow:
+        0 5px 25px
+        rgba(0,0,0,.15);
+}
+
+
+.top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding-bottom: 20px;
+
+    border-bottom:
+        3px solid #e07a2f;
+}
+
+
+.brand {
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+}
+
+
+.muted {
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+.invoice-title {
+
+    margin-top: 30px;
+
+    font-size: 32px;
+
+    letter-spacing: 4px;
+
+    color: #e07a2f;
+}
+
+
+.status {
+
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    margin-top: 5px;
+
+    border-radius: 30px;
+
+    background: #fff3e6;
+
+    color: #a8520c;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+}
+
+
+h2 {
+
+    margin-top: 30px;
+
+    padding-bottom: 8px;
+
+    border-bottom:
+        1px solid #ddd;
+
+    color: #e07a2f;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+th,
+td {
+
+    padding: 10px;
+
+    border-bottom:
+        1px solid #eeeeee;
+
+    text-align: left;
+
+    vertical-align: top;
+}
+
+
+th {
+
+    background: #faf6f0;
+
+    font-size: 12px;
+}
+
+
+.right {
+
+    text-align: right;
+}
+
+
+.info-box {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #faf6f0;
+
+    border:
+        1px solid #e2ddd5;
+}
+
+
+.total-row td {
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+.payment-box {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border:
+        1px solid #ddd;
+
+    background: #fafafa;
+}
+
+
+.paid-stamp {
+
+    width: max-content;
+
+    margin: 30px auto;
+
+    padding: 10px 30px;
+
+    border:
+        3px solid #27834a;
+
+    color: #27834a;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    transform: rotate(-4deg);
+}
+
+
+.actions {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0 auto 15px;
+
+    text-align: right;
+}
+
+
+.actions button {
+
+    padding: 10px 18px;
+
+    border: 0;
+
+    border-radius: 25px;
+
+    background: #e07a2f;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+
+.footer {
+
+    margin-top: 35px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid #ddd;
+
+    font-size: 12px;
+
+    color: #777;
+
+    line-height: 1.7;
+}
+
+
+@media print {
+
+    body {
+
+        padding: 0;
+
+        background: white;
+    }
+
+
+    .page {
+
+        max-width: none;
+
+        box-shadow: none;
+
+        padding: 25px;
+    }
+
+
+    .actions {
+
+        display: none;
+    }
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="actions">
+
+    <button
+        onclick="window.print()"
+    >
+        Print / Save as PDF
+    </button>
+
+</div>
+
+
+<div class="page">
+
+
+    <!-- HEADER -->
+
+    <div class="top">
+
+        <div>
+
+            <div class="brand">
+                IMAGINATION NATURE STUDIO
+            </div>
+
+            <div class="muted">
+                PHOTOGRAPHY &amp;
+                CREATIVE STUDIO
+            </div>
+
+            <div class="muted">
+                Kiyovu, Kigali, Rwanda
+            </div>
+
+            <div class="muted">
+                TIN:
+                111997931
+            </div>
+
+        </div>
+
+
+        <div
+            class="right"
+            style="text-align:right"
+        >
+
+            <div class="muted">
+                +250 788 577 033
+            </div>
+
+            <div class="muted">
+                info@imaginationnaturestudio.com
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <div class="invoice-title">
+        INVOICE
+    </div>
+
+
+    <div class="status">
+        PARTIALLY PAID
+    </div>
+
+    <div class="invoice-meta">
+        Generated from the booking information recorded by Imagination Nature Studio.
+    </div>
+
+
+    <!-- INVOICE INFORMATION -->
+
+    <h2>
+        Invoice Information
+    </h2>
+
+
+    <table>
+
+        <tr>
+            <td>
+                <strong>Invoice No.</strong>
+            </td>
+
+            <td>
+                INV-2026-00041
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <strong>Booking No.</strong>
+            </td>
+
+            <td>
+                INS-2026-00041
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <strong>Issued</strong>
+            </td>
+
+            <td>
+                2026-10-05 16:51
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <strong>Due Date</strong>
+            </td>
+
+            <td>
+                2026-10-12
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <strong>Payment Method</strong>
+            </td>
+
+            <td>
+                Mobile Money
+            </td>
+        </tr>
+
+
+    </table>
+
+
+    <!-- BILL TO -->
+
+    <h2>
+        Billed To
+    </h2>
+
+
+    <table>
+
+        <tr>
+            <td>Name</td>
+            <td>
+                Regis Tuyikunde
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Phone</td>
+            <td>
+                +250788577033
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Email</td>
+            <td>
+                rider.regis17@gmail.com
+            </td>
+        </tr>
+
+
+        <tr>
+                <td>Company</td>
+                <td>ImaginationNatureStudio</td>
+             </tr>
+
+
+        <tr>
+            <td>Location</td>
+            <td>
+                Kigali
+            </td>
+        </tr>
+
+    </table>
+
+
+    <!-- BOOKING DETAILS -->
+
+    <h2>
+        Booking Details
+    </h2>
+
+
+    <table>
+
+        <tr>
+            <td>Service</td>
+
+            <td>
+                Wedding Photography
+            </td>
+        </tr>
+
+
+        <tr>
+                <td>Package</td>
+                <td>BRONZE</td>
+             </tr>
+
+
+        <tr>
+            <td>Date</td>
+
+            <td>
+                2026-10-06
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Time</td>
+
+            <td>
+                11:30:00
+                -
+                22:49:00
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Location</td>
+
+            <td>
+                Kigali
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>People</td>
+
+            <td>
+                1
+            </td>
+        </tr>
+
+    </table>
+
+
+    <!-- WEDDING SCHEDULE -->
+
+    
+        <h2>Wedding Schedule</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Day</th>
+                    <th>Date</th>
+                    <th>Event</th>
+                    <th>Time</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr><td>Day 1</td><td>2026-10-06</td><td>Civil wedding</td><td>11:30 - 22:49</td></tr>
+
+            </tbody>
+
+        </table>
+
+
+    <!-- ITEMS -->
+
+    <h2>
+        Items
+    </h2>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Description
+                </th>
+
+                <th class="right">
+                    Amount
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+
+                    Wedding Photography
+
+                     - BRONZE
+
+                </td>
+
+
+                <td class="right">
+
+                    RWF 700,000
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <!-- PAYMENT SUMMARY -->
+
+    <div class="info-box">
+
+        <table>
+
+            <tr>
+
+                <td>
+                    Subtotal
+                </td>
+
+                <td class="right">
+                    RWF 700,000
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Deposit Required (30%)
+                </td>
+
+                <td class="right">
+                    RWF 210,000
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Amount Paid
+                </td>
+
+                <td class="right">
+                    RWF 210,000
+                </td>
+
+            </tr>
+
+
+            <tr class="total-row">
+
+                <td>
+                    Balance Due
+                </td>
+
+                <td class="right">
+                    RWF 490,000
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- PAYMENT STATUS -->
+
+    <div class="payment-box">
+
+        
+            <strong>Partially Paid</strong>
+            <br><br>
+
+            Amount Paid:
+            <strong>RWF 210,000</strong>
+
+            <br><br>
+
+            Remaining Balance:
+            <strong>RWF 490,000</strong>
+
+    </div>
+
+
+    
+
+
+    <p style="margin-top:30px">
+
+        Thank you for choosing
+        <strong>
+            Imagination Nature Studio
+        </strong>.
+
+    </p>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        Kiyovu, Kigali, Rwanda
+
+        &nbsp; · &nbsp;
+
+        +250 788 577 033
+
+        &nbsp; · &nbsp;
+
+        info@imaginationnaturestudio.com
+
+        <br>
+
+        TIN:
+        111997931
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

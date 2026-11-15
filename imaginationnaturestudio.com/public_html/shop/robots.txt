@@ -1,0 +1,7 @@
+# robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /config/
+Sitemap: https://shop.imaginationnaturestudio.com/sitemap.php

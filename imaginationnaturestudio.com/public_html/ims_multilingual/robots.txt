@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /receipts/
+Disallow: /includes/
+Disallow: /config.php
+Sitemap: https://imaginationnaturestudio.com/sitemap.php

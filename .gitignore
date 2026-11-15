@@ -1,0 +1,54 @@
+# ── OS / Editor ───────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# ── Dev server logs ───────────────────────────────────
+/tmp/dev-*.log
+
+# ── Large backup / archive files ──────────────────────
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+*.gz
+
+# ── SQL dumps (contain DB credentials — keep local only)
+*.sql
+
+# ── PHP vendor ────────────────────────────────────────
+imaginationnaturestudio.com/public_html/vendor/
+shop.imaginationnaturestudio.com/public_html/vendor/
+
+# ── Error logs ────────────────────────────────────────
+error.log
+*.error.log
+imaginationnaturestudio.com/public_html/error.log
+imaginationnaturestudio.com/logs/
+imaginationnaturestudio.com/awstats/
+imaginationnaturestudio.com/stats/
+
+# ── Receipts (may contain PII / booking data) ─────────
+imaginationnaturestudio.com/public_html/receipts/
+
+# ── Uploaded user files (re-upload to production)─────
+# Comment out if you WANT to track uploads in git
+# imaginationnaturestudio.com/public_html/uploads/
+
+# ── Session storage ───────────────────────────────────
+imaginationnaturestudio.com/public_html/storage/sessions/
+
+# ── Config with live secrets ──────────────────────────
+# (we keep config files in git since they already have
+#  ENVIRONMENT = 'development'; production values go
+#  in environment variables or a git-ignored override)
+# config.local.php
+
+# ── Private dirs ──────────────────────────────────────
+imaginationnaturestudio.com/private_html/
+imaginationnaturestudio.com/public_ftp/

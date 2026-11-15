@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Receipt · INS-2026-00007 · Imagination Nature Studio</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  /* ----- Print-optimized styles ----- */
+  @page {
+    size: A4;
+    margin: 14mm 14mm 16mm;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: #f2efe9;
+    font-family: Georgia, 'Playfair Display', 'Times New Roman', serif;
+    color: #1a1a1a;
+    font-size: 13px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 780px;
+    margin: 30px auto;
+    background: #ffffff;
+    box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    padding: 44px 48px 40px;
+    border-radius: 6px;
+  }
+
+  /* ----- Screen toolbar (hidden on print) ----- */
+  .toolbar {
+    max-width: 780px;
+    margin: 24px auto 0;
+    padding: 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    font-size: 13px;
+    color: #555;
+  }
+  .toolbar .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 10px 20px;
+    background: #e07a2f;
+    color: #fff;
+    border: 0;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .toolbar .btn:hover { background: #f2a35e; }
+  .toolbar .btn.ghost {
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #333;
+  }
+
+  /* ----- Header ----- */
+  .hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid #e07a2f;
+    padding-bottom: 18px;
+    margin-bottom: 26px;
+  }
+  .brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #14100d;
+    margin: 0 0 2px;
+  }
+  .brand-tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #999;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .hdr-right {
+    text-align: right;
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* ----- Receipt title ----- */
+  .rcpt-title {
+    text-align: center;
+    margin: 8px 0 26px;
+  }
+  .rcpt-title h1 {
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #e07a2f;
+    margin: 0 0 6px;
+    font-weight: 700;
+  }
+  .rcpt-title .num {
+    font-size: 26px;
+    font-weight: 700;
+    color: #14100d;
+    letter-spacing: 1px;
+  }
+  .rcpt-title .pill {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    background: #fff3e6;
+    color: #b35a10;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: system-ui, sans-serif;
+    font-weight: 600;
+  }
+
+  /* ----- Section headers ----- */
+  h2 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #e07a2f;
+    border-bottom: 1px solid #efe7dc;
+    padding-bottom: 6px;
+    margin: 26px 0 10px;
+    font-weight: 700;
+  }
+
+  /* ----- Tables ----- */
+  table.info {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    font-size: 13px;
+  }
+  table.info td {
+    padding: 5px 0;
+    vertical-align: top;
+  }
+  table.info td.label {
+    color: #888;
+    width: 40%;
+  }
+  table.info td.value {
+    color: #14100d;
+    text-align: right;
+    font-weight: 500;
+  }
+
+  /* ----- Total box ----- */
+  .total-box {
+    margin-top: 14px;
+    background: #faf7f3;
+    border: 1px solid #efe7dc;
+    border-radius: 8px;
+    padding: 18px 22px;
+  }
+  .total-box table td {
+    padding: 6px 0;
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    font-size: 13px;
+  }
+  .total-box td.grand {
+    font-size: 15px;
+    font-weight: 700;
+    color: #14100d;
+    border-top: 1px solid #e6ddd2;
+    padding-top: 12px;
+  }
+  .total-box td.grand-label {
+    font-weight: 700;
+    color: #14100d;
+    border-top: 1px solid #e6ddd2;
+    padding-top: 12px;
+  }
+
+  /* ----- Footer ----- */
+  .thanks {
+    text-align: center;
+    margin: 32px 0 18px;
+    font-size: 15px;
+    color: #14100d;
+  }
+  .rcpt-footer {
+    margin-top: 30px;
+    padding-top: 14px;
+    border-top: 1px solid #efe7dc;
+    text-align: center;
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    font-size: 10.5px;
+    color: #999;
+    line-height: 1.7;
+  }
+
+  /* ----- Print rules ----- */
+  @media print {
+    body { background: #fff; }
+    .sheet {
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+      border-radius: 0;
+    }
+    .toolbar { display: none !important; }
+    .total-box { background: #faf7f3 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .rcpt-title .pill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .hdr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    .sheet { padding: 26px 22px; }
+    .hdr { flex-direction: column; gap: 10px; }
+    .hdr-right { text-align: left; }
+    .toolbar { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Toolbar (not printed) -->
+<div class="toolbar">
+  <a class="btn ghost" href="https://imaginationnaturestudio.com/booking/confirmation.php?ref=INS-2026-00007">
+    ← Back
+  </a>
+  <button class="btn" onclick="window.print()">
+    🖨️ Save as PDF / Print
+  </button>
+</div>
+
+<!-- The receipt sheet -->
+<div class="sheet">
+
+  <div class="hdr">
+    <div>
+      <div class="brand-name">IMAGINATION NATURE STUDIO</div>
+      <div class="brand-tag">Photography &amp; Creative Studio</div>
+      <div style="font-family:system-ui,sans-serif;font-size:11px;color:#888;line-height:1.7">
+        Kiyovu, Kigali, Rwanda<br>
+        TIN: 111997931      </div>
+    </div>
+    <div class="hdr-right">
+      +250 788 577 033<br>
+      +250 782 156 008<br>
+      info@imaginationnaturestudio.com    </div>
+  </div>
+
+  <div class="rcpt-title">
+    <h1>Booking Receipt</h1>
+    <div class="num">INS-2026-00007</div>
+    <div class="pill">Status: Pending</div>
+  </div>
+
+  <h2>Receipt Details</h2>
+  <table class="info">
+    <tr>
+      <td class="label">Issued On</td>
+      <td class="value">21 Sep 2026 · 11:34</td>
+    </tr>
+    <tr>
+      <td class="label">Event Date</td>
+      <td class="value">22 Sep 2026</td>
+    </tr>
+    <tr>
+      <td class="label">Time</td>
+      <td class="value">
+        13:00 – 15:00      </td>
+    </tr>
+  </table>
+
+  <h2>Client</h2>
+  <table class="info">
+    <tr><td class="label">Name</td>     <td class="value">Nadjib</td></tr>
+    <tr><td class="label">Phone</td>    <td class="value">0788238926</td></tr>
+    <tr><td class="label">WhatsApp</td> <td class="value">0735327768</td></tr>
+    <tr><td class="label">Email</td>    <td class="value">nadjibahalima@gmail.com</td></tr>
+        <tr><td class="label">Company</td>  <td class="value">Nadjii</td></tr>
+      </table>
+
+  <h2>Booking</h2>
+  <table class="info">
+    <tr><td class="label">Service</td>        <td class="value">Photo Albums</td></tr>
+        <tr><td class="label">Location</td>       <td class="value">Kigali</td></tr>
+        <tr><td class="label">Event Type</td>     <td class="value">Wedding</td></tr>
+        <tr><td class="label">Number of People</td><td class="value">1</td></tr>
+  </table>
+
+  <h2>Payment</h2>
+  <div class="total-box">
+    <table style="width:100%;border-collapse:collapse">
+      <tr>
+        <td class="label" style="color:#888">Total Amount</td>
+        <td class="value">RWF 0</td>
+      </tr>
+      <tr>
+        <td class="label" style="color:#888">Deposit (30%)</td>
+        <td class="value">RWF 0</td>
+      </tr>
+      <tr>
+        <td class="label" style="color:#888">Amount Paid</td>
+        <td class="value">RWF 0</td>
+      </tr>
+      <tr>
+        <td class="grand-label">Remaining Balance</td>
+        <td class="grand" style="text-align:right">RWF 0</td>
+      </tr>
+      <tr>
+        <td class="label" style="color:#888;padding-top:14px">Payment Method</td>
+        <td class="value" style="padding-top:14px">
+          Mobile money        </td>
+      </tr>
+      <tr>
+        <td class="label" style="color:#888">Payment Status</td>
+        <td class="value">Unpaid</td>
+      </tr>
+    </table>
+  </div>
+
+  <p class="thanks">Thank you for choosing Imagination Nature Studio.</p>
+
+  <div class="rcpt-footer">
+    Kiyovu, Kigali, Rwanda &nbsp;·&nbsp;
+    +250 788 577 033 &nbsp;·&nbsp;
+    info@imaginationnaturestudio.com<br>
+    TIN 111997931 &nbsp;·&nbsp; Monday – Saturday, 09:00 – 21:00  </div>
+
+</div>
+
+<script>
+  /* Auto-open the print dialog when arriving via the download link */
+  if (location.search.indexOf('auto=1') > -1) {
+    window.addEventListener('load', function () {
+      setTimeout(function () { window.print(); }, 400);
+    });
+  }
+</script>
+
+</body>
+</html>
