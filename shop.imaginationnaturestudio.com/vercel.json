@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "name": "imagination-nature-studio-shop",
+  "functions": {
+    "public_html/**/*.php": {
+      "runtime": "vercel-php@0.7.2"
+    }
+  },
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/public_html/assets/$1"
+    },
+    {
+      "src": "/uploads/(.*)",
+      "dest": "/public_html/uploads/$1"
+    },
+    {
+      "src": "/(.*\\.php)$",
+      "dest": "/public_html/$1"
+    },
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|pdf))$",
+      "dest": "/public_html/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public_html/index.php"
+    }
+  ]
+}
