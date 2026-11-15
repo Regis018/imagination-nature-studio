@@ -52,3 +52,7 @@ imaginationnaturestudio.com/public_html/storage/sessions/
 # ── Private dirs ──────────────────────────────────────
 imaginationnaturestudio.com/private_html/
 imaginationnaturestudio.com/public_ftp/
+
+# Firebase service account (private key — never commit)
+**/firebase/serviceAccount.json
+*.json.key
