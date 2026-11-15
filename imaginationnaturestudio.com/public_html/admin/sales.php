@@ -783,7 +783,7 @@ require __DIR__ . '/includes/admin-header.php';
                 <span style="color:#6a6159;font-size:.78rem;margin-right:.4rem">✓ Fully paid</span>
               <?php endif; ?>
 
-              <form method="post" style="display:inline" onsubmit="return confirm('PERMANENTLY DELETE this sale? If linked, its Photo Order, payments, Final Delivery gallery and uploaded photos will also be deleted. This cannot be undone.')>
+              <form method="post" style="display:inline" onsubmit="return confirm('PERMANENTLY DELETE this sale? If linked, its Photo Order, payments, Final Delivery gallery and uploaded photos will also be deleted. This cannot be undone.')">
                 <?= csrf_field() ?>
                 <input type="hidden" name="action" value="delete">
                 <input type="hidden" name="id" value="<?= (int)$r['id'] ?>">

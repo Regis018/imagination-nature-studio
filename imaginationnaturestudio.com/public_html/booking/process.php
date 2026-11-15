@@ -901,10 +901,11 @@ try {
                 booking_id,
                 amount,
                 payment_method,
+                payment_status,
                 payment_date
             )
             VALUES
-            (?, ?, ?, ?)"
+            (?, ?, ?, 'successful', ?)"
         );
 
 

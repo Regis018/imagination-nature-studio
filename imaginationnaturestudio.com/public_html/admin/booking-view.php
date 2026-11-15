@@ -419,9 +419,10 @@ if (
                     booking_id,
                     amount,
                     payment_method,
+                    payment_status,
                     payment_date
                 )
-                VALUES (?, ?, ?, ?)
+                VALUES (?, ?, ?, 'successful', ?)
             ");
 
             $payment->execute([

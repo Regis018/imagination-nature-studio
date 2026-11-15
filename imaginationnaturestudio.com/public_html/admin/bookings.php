@@ -49,28 +49,33 @@ if (
         }
 
         try {
+            $pdo->beginTransaction();
+
             $stmt = $pdo->prepare(
-                "SELECT booking_number FROM bookings WHERE id = ?"
+                "SELECT booking_number FROM bookings WHERE id = ? FOR UPDATE"
             );
             $stmt->execute([$id]);
-
             $bookingNumber = $stmt->fetchColumn();
 
-            $del = $pdo->prepare(
-                "DELETE FROM bookings WHERE id = ?"
-            );
-            $del->execute([$id]);
+            if (!$bookingNumber) {
+                throw new RuntimeException('Booking not found.');
+            }
 
-            flash(
-                'ok',
-                'Booking ' . ($bookingNumber ?: '#' . $id) . ' deleted.'
-            );
+            // Remove child records with no FK cascade before deleting the booking.
+            $pdo->prepare("DELETE FROM booking_items WHERE booking_id = ?")->execute([$id]);
+            $pdo->prepare("DELETE FROM booking_dates WHERE booking_id = ?")->execute([$id]);
+            // payments cascades automatically via FK ON DELETE CASCADE.
+
+            $pdo->prepare("DELETE FROM bookings WHERE id = ?")->execute([$id]);
+
+            $pdo->commit();
+
+            flash('ok', 'Booking ' . $bookingNumber . ' deleted.');
 
         } catch (Throwable $e) {
-
+            if ($pdo->inTransaction()) { $pdo->rollBack(); }
             error_log('[BOOKING DELETE] ' . $e->getMessage());
-
-            flash('err', 'Delete failed. Please check the error log.');
+            flash('err', 'Delete failed: ' . $e->getMessage());
         }
 
         redirect('bookings.php');
