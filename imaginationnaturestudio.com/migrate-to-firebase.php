@@ -6,6 +6,7 @@
 declare(strict_types=1);
 ini_set('memory_limit', '256M');
 set_time_limit(0);
+error_reporting(E_ALL & ~E_DEPRECATED); // suppress curl_close() deprecation (PHP 8.5)
 
 require __DIR__ . '/public_html/vendor/autoload.php';
 
@@ -78,7 +79,7 @@ foreach (TABLES as $table) {
             $url   = FS_BASE . "/$table/$docId";
 
             $ok = fsRequest('PATCH', $url, $token, $body);
-            if ($ok) { $done++; } else { echo "✗ failed doc $docId "; }
+            if ($ok) { $done++; } else { echo "\n    ✗ doc $docId"; }
         }
 
         $offset += CHUNK_SIZE;
@@ -161,9 +162,16 @@ function fsRequest(string $method, string $url, string $token, ?array $body = nu
 
     $res  = curl_exec($ch);
     $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+    // curl_close() is a no-op since PHP 8.0 — skip to avoid deprecation notice
 
-    return $code >= 200 && $code < 300;
+    if ($code < 200 || $code >= 300) {
+        $err = json_decode($res, true);
+        $msg = $err['error']['message'] ?? $res;
+        echo "\n    [HTTP $code] $msg";
+        return false;
+    }
+
+    return true;
 }
 
 function toFirestoreFields(array $row): array
