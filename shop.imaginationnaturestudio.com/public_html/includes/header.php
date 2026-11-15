@@ -1,4 +1,3 @@
-```php
 <?php
 declare(strict_types=1);
 
@@ -296,4 +295,3 @@ $ogImage = $ogImage ?? '';
 </header>
 
 <main>
-```

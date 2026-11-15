@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Imagination Nature Studio

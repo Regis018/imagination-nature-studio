@@ -1,7 +1,4 @@
-  </main><!-- /.admin-main -->
-</div><!-- /.admin-shell -->
-
-<script src="<?= e(SITE_URL) ?>/assets/js/main.js?v=<?= @filemtime(SITE_ROOT . '/assets/js/main.js') ?: time() ?>" defer></script>
+<?= e(SITE_URL) ?>/assets/js/main.js?v=<?= @filemtime(SITE_ROOT . '/assets/js/main.js') ?: time() ?>" defer></script>
 
 <script>
 /* =========================================================

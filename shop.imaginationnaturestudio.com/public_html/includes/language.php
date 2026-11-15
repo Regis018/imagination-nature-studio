@@ -1,4 +1,3 @@
-```php
 <?php
 /**
  * Frame Zone Kigali — Language System
@@ -358,4 +357,3 @@ if (!function_exists('fz_t')) {
             ?? $key;
     }
 }
-```
